@@ -14,11 +14,11 @@ ser a mesma no escopo interno.
 x = 1
 
 def escopo():
-  global x
+  # global x
   x = 10
 
   def outro_escopo():
-    global x
+    # global x
     x = 11
     y = 2
     print(x, y)
