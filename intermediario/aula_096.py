@@ -1,27 +1,35 @@
 """
-raise - lançando exceções (erros)
+try, except, else e finally
 https://docs.python.org/3/library/exceptions.html
 """
 
-def divisor_validate(divisor):
-  if divisor == 0:
-    raise ZeroDivisionError('Você está tentando dividir um número por zero')
-  
-  return True
+try:
+  a = 10
+  b = 0
 
-def check_int_float(number):
-  type_number = type(number)
-  
-  if not isinstance(number, (float, int)):
-    raise TypeError(f'"{number}" deve ser int ou float.', f'"{type_number.__name__}" enviado.')
-  
-  True
+  print('INICIO TRY')
+  # print(a[0])
+  # c = a / b
+  # print(c)
+  print('FINAL TRY'[1000])
+except ZeroDivisionError as error:
+  print('ZeroDivisionError:', error)
+except NameError as error:
+  print('NameError:', error)
+except (TypeError, IndexError) as error:
+  print(f"{error.__class__.__name__} :", error)
+except Exception as error:
+  print('Exception:', error)
 
-def divide(n, d):
-  check_int_float(n)
-  check_int_float(d)
-  divisor_validate(d)
-  
-  return n / d
+print('', '=' * 50, '', sep='\n')
 
-print(divide('8', 0))
+try:
+  print('TRY')
+  # print(8 / 0)
+except ZeroDivisionError as error:
+  print('EXCEPT')
+  print(f"{error.__class__.__name__}: {error}")
+else:
+  print('ELSE')
+finally:
+  print('FINALLY')

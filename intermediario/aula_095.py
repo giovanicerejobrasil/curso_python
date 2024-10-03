@@ -1,35 +1,43 @@
 """
-try, except, else e finally
-https://docs.python.org/3/library/exceptions.html
+Yield From
 """
 
-try:
-  a = 10
-  b = 0
+def gen1():
+  print('COMEÇOU O GEN 1')
+  yield 1
+  yield 2
+  yield 3
+  print('TERMINOU O GEN 1')
 
-  print('INICIO TRY')
-  # print(a[0])
-  # c = a / b
-  # print(c)
-  print('FINAL TRY'[1000])
-except ZeroDivisionError as error:
-  print('ZeroDivisionError:', error)
-except NameError as error:
-  print('NameError:', error)
-except (TypeError, IndexError) as error:
-  print(f"{error.__class__.__name__} :", error)
-except Exception as error:
-  print('Exception:', error)
+def gen3():
+  print('COMEÇOU O GEN 3')
+  yield 7
+  yield 8
+  yield 9
+  print('TERMINOU O GEN 3')
+  
+def gen2(gen=None):
+  print('COMEÇOU O GEN 2')
+  if gen is not None:
+    yield from gen()
+  yield 4
+  yield 5
+  yield 6
+  print('TERMINOU O GEN 2')
+  
+g1 = gen2(gen1)
+g3 = gen2(gen3)
+g2 = gen2()
 
-print('', '=' * 50, '', sep='\n')
+for i in g1:
+  print(i)
 
-try:
-  print('TRY')
-  # print(8 / 0)
-except ZeroDivisionError as error:
-  print('EXCEPT')
-  print(f"{error.__class__.__name__}: {error}")
-else:
-  print('ELSE')
-finally:
-  print('FINALLY')
+print('=' * 50)  
+
+for i in g3:
+  print(i)
+  
+print('=' * 50)  
+
+for i in g2:
+  print(i)

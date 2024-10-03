@@ -1,17 +1,21 @@
 """
-Introdução às Generators Functions em Python
-generator = (n for n in range(1000000))
+Generator expression, Iterables e Iterators em Python
 """
+import sys
 
-def generator(n = 0, max = 10, step = 1):
-  while True:
-    yield n
-    n += step
-    
-    if n >= max:
-      return
+iterable = ['Eu', 'tenho', '__iter__']
+iterator = iter(iterable) # tem __iter__ e __next__
 
-gen = generator(max = 1000000)
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+print()
 
-for n in gen:
+lista = [n for n in range(1000000)]
+generator = (n for n in range(1000000))
+
+print(sys.getsizeof(lista))
+print(sys.getsizeof(generator))
+
+for n in generator:
   print(n)
