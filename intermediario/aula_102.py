@@ -12,18 +12,18 @@ Exercícios
 - Ordene os produtos por preco crescente (do menor para maior)
 - Gere produtos_ordenados_por_preco por deep copy (cópia profunda)
 """
-from dados import produtos
+from dados import products
 
 import copy
 
 print('PRODUTOS'.center(50))
-print(*produtos, sep='\n')
+print(*products, sep='\n')
 
 print('', '=' * 50, '', sep='\n')
 
 novos_produtos = [
   {**p, 'preco': round(p['preco'] * 1.1, 2)}
-  for p in copy.deepcopy(produtos)
+  for p in copy.deepcopy(products)
 ]
   
 print('NOVOS PRODUTOS'.center(50))
@@ -32,7 +32,7 @@ print(*novos_produtos, sep='\n')
 print('', '=' * 50, '', sep='\n')
 
 produtos_ordenados_por_nome = sorted(
-  copy.deepcopy(produtos),
+  copy.deepcopy(products),
   key=lambda p: p['nome'],
   reverse=True
 )
@@ -43,7 +43,7 @@ print(*produtos_ordenados_por_nome, sep='\n')
 print('', '=' * 50, '', sep='\n')
 
 produtos_ordenados_por_preco = sorted(
-  copy.deepcopy(produtos),
+  copy.deepcopy(products),
   key=lambda p: p['preco']
 )
 

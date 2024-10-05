@@ -1,6 +1,7 @@
 """
 map - para mapear dados
 """
+from dados.produtos_module import products as products
 from functools import partial
 from types import GeneratorType
 
@@ -9,14 +10,6 @@ def print_iterator(iterator):
 
 def print_division(num_repeat=50):
   print('', '=' * num_repeat, '', sep='\n')
-
-products = [
-  {'name': 'Product 5', 'price': 10.00},
-  {'name': 'Product 1', 'price': 22.32},
-  {'name': 'Product 3', 'price': 10.11},
-  {'name': 'Product 2', 'price': 105.87},
-  {'name': 'Product 4', 'price': 69.90},
-]
 
 def increase_price(price, percent):
   return round(price + (price * (percent / 100)), 2)

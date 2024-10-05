@@ -1,7 +1,7 @@
-produtos = [
-    {'nome': 'Produto 5', 'preco': 10.00},
-    {'nome': 'Produto 1', 'preco': 22.32},
-    {'nome': 'Produto 3', 'preco': 10.11},
-    {'nome': 'Produto 2', 'preco': 105.87},
-    {'nome': 'Produto 4', 'preco': 69.90},
+products = [
+    {'name': 'Produto 5', 'price': 10.00},
+    {'name': 'Produto 1', 'price': 22.32},
+    {'name': 'Produto 3', 'price': 10.11},
+    {'name': 'Produto 2', 'price': 105.87},
+    {'name': 'Produto 4', 'price': 69.90},
 ]
