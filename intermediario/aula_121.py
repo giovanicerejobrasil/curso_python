@@ -11,21 +11,22 @@ refazer = todo ['fazer café']
 refazer = todo ['fazer café', 'caminhar']
 """
 import os
-
-commands = ['listar', 'desfazer', 'refazer', 'clear', 'exit']
-todo_list = ['fazer café', 'programar']
-excluded_items_list = []
+import json
 
 
 def show_list(todo_list):
     print('LISTA DE TAREFAS')
+
+    if not todo_list:
+        todo_list = open_file(todo_list, FILE_PATH)
+
     if not todo_list:
         print('NENHUM ITEM ADICIONADO À LISTA')
         print()
         return
 
     for task in todo_list:
-        print(f'   - {task}')
+        print(f'  - {task}')
     print()
     return
 
@@ -62,13 +63,47 @@ def add_task(task, todo_list):
         print()
         return
 
-    todo_list.append(user_choice)
-    print(f'TAREFA [{user_choice.upper()}] Adicionada')
+    todo_list.append(task)
+
+    print(f'TAREFA [{task.upper()}] Adicionada')
     print()
 
 
 def clear():
     os.system('clear')
+
+
+def open_file(todo_list, file_path):
+    data = []
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        print('ARQUIVO NÃO EXISTE')
+        save_file(todo_list, file_path)
+
+    return data
+
+
+def save_file(todo_list, file_path):
+    data = todo_list
+
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2
+        )
+
+    return data
+
+
+FILE_PATH = 'intermediario/aula_121.json'
+commands = ['listar', 'desfazer', 'refazer', 'clear', 'exit']
+todo_list = open_file([], FILE_PATH)
+excluded_items_list = []
 
 
 while True:
@@ -95,7 +130,7 @@ while True:
         if user_choice == commands[4]:
             exit()
 
-        continue
+    else:
+        add_task(user_choice, todo_list)
 
-    add_task(user_choice, todo_list)
-    continue
+    save_file(todo_list, FILE_PATH)
