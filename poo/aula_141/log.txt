@@ -1,0 +1,14 @@
+ERROR: Texto de erro  | LogFileMixin
+SUCCESS: Texto de sucesso | LogFileMixin
+ERROR: Texto de erro  | LogFileMixin
+SUCCESS: Texto de sucesso | LogFileMixin
+ERROR: Texto de erro  | LogFileMixin
+SUCCESS: Texto de sucesso | LogFileMixin
+ERROR: Texto de erro  | LogFileMixin
+SUCCESS: Texto de sucesso | LogFileMixin
+ERROR: Texto de erro  | LogFileMixin
+SUCCESS: Texto de sucesso | LogFileMixin
+SUCCESS: Galaxy S23 está ligado | Smartphone
+ERROR: iPhone 15 está desligado | Smartphone
+SUCCESS: Galaxy S23 está ligado | Smartphone
+ERROR: iPhone 15 está desligado | Smartphone
