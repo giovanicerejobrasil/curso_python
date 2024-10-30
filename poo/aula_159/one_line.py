@@ -1,3 +1,5 @@
-"""DOCUMENTAÇÃO DO MÓDULO"""
+"""
+DOCUMENTAÇÃO DO MÓDULO
+"""
 
 variable = 1
