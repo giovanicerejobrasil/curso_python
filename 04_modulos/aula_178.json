@@ -1,0 +1,9 @@
+{
+  "title": "Esquadrão Classe A",
+  "original_title": "The A-Team",
+  "is_movie": true,
+  "imdb_rating": 6.7,
+  "year": 2010,
+  "characters": ["Hannibal", "Face", "Murdock", "B.A. Baracus"],
+  "budget": null
+}
