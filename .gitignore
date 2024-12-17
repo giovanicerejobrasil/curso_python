@@ -3,3 +3,4 @@ venv
 .env
 __localcode
 *.sqlite3
+06_base_dados/aula_214/mysql_214/
